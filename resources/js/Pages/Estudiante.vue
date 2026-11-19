@@ -17,6 +17,7 @@ const obtenerEstudiantes = async () => {
     try {
 
         const respuesta = await api.get('/students');//esta es la ruta que nosostros hicimos en api.php
+        console.log(respuesta);
         estudiantes.value = respuesta.data;
 
     } catch (e) {
@@ -24,6 +25,8 @@ const obtenerEstudiantes = async () => {
         error.value = 'No fue posible cargar los estudiantes.';
 
         console.error(e);
+
+
 
     } finally {
 
@@ -56,6 +59,7 @@ onMounted(() => {
                     class="mb-4"
                 >
                     {{ error }}
+
                 </v-alert>
 
                 <v-progress-linear
